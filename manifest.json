@@ -3,7 +3,7 @@
   "short_name": "side-hustle-",
   "start_url": "/side-hustle-income-tracker/",
   "display": "standalone",
-  "background_color": "#6366f1",
+  "background_color": "#ffffff",
   "theme_color": "#7c3aed",
   "scope": "/side-hustle-income-tracker/"
 }
