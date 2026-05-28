@@ -1,8 +1,9 @@
 {
   "name": "Side Hustle Income Tracker",
   "short_name": "side-hustle-",
-  "start_url": "/",
+  "start_url": "/side-hustle-income-tracker/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#6366f1"
+  "theme_color": "#6366f1",
+  "scope": "/side-hustle-income-tracker/"
 }
