@@ -64,51 +64,22 @@ a{text-decoration:none;color:inherit}
 @media(max-width:860px){.nav{display:none}.hd .btn{margin-left:auto}}
 
 /* Hero */
-.hero{position:relative;color:var(--ink);overflow:hidden;background:linear-gradient(165deg,#ecfdf5 0%,#d1fae5 40%,#f0fbf7 78%,#f3faf7 100%)}
-.hero::before{content:"";position:absolute;top:-160px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.18),transparent 68%);pointer-events:none}
-.hero::after{content:"";position:absolute;bottom:-180px;left:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(167,243,208,.4),transparent 70%);pointer-events:none}
-.hero-in{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:64px 0 76px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:7px 15px;font-size:12.5px;font-weight:700;color:var(--green-dd);box-shadow:0 6px 18px rgba(2,44,33,.07);margin-bottom:18px}
-.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(16,185,129,.18)}
-.hero h1{font-size:47px;line-height:1.26;font-weight:800;letter-spacing:-.015em;margin-bottom:18px}
-.hero h1 .hl{color:var(--green-d);position:relative}
-.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:11px;background:rgba(16,185,129,.16);z-index:-1;border-radius:3px}
-.hero p.lead{font-size:16.5px;line-height:1.85;color:var(--slate);margin-bottom:26px;max-width:540px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px}
-.hero-trust{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;font-weight:600;color:var(--green-dd)}
+.hero{position:relative;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url(../assets/photos/photo_01.jpg);background-size:cover;background-position:center;transform:scale(1.03)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(4,87,67,.92) 0%,rgba(5,120,90,.82) 42%,rgba(4,70,56,.55) 100%)}
+.hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:74px 0 86px}
+.hero h1{font-size:46px;line-height:1.28;font-weight:800;letter-spacing:-.01em;margin-bottom:20px}
+.hero h1 .hl{color:#a7f3d0}
+.hero p.lead{font-size:17px;line-height:1.85;color:#e3f6ee;margin-bottom:28px;max-width:540px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.hero-trust{display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;font-weight:600;color:#d6f5e9}
 .hero-trust span{display:flex;align-items:center;gap:6px}
-.hero-trust .ck{width:18px;height:18px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
-.hero .btn-ghost{background:#fff;color:var(--green-dd);border:2px solid var(--line)}
-.hero .btn-ghost:hover{background:var(--mint);border-color:#bbf0dc}
-
-/* hero dashboard mockup */
-.hero-vis{position:relative}
-.hero-dash{background:#fff;border-radius:20px;padding:20px;box-shadow:0 34px 80px rgba(2,44,33,.22);border:1px solid var(--line)}
-.dash-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
-.dash-kpi .lbl{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-bottom:4px}
-.dash-kpi .val{font-size:28px;font-weight:800;color:var(--ink);letter-spacing:-.01em;display:flex;align-items:baseline;gap:9px;font-family:'Inter',sans-serif}
-.dash-kpi .up{font-size:12.5px;font-weight:800;color:var(--green-d);background:var(--mint);padding:2px 8px;border-radius:7px}
-.dash-badge{background:#fef3c7;color:var(--amber-d);padding:6px 12px;border-radius:10px;font-size:11.5px;font-weight:800;text-align:right;line-height:1.4}
-.dash-badge b{display:block;font-size:14px;color:var(--amber-d)}
-.dash-bars{display:flex;align-items:flex-end;gap:9px;height:118px;padding:8px 4px 0;border-bottom:1px solid var(--line);margin-bottom:14px}
-.dash-bars .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
-.dash-bars .bar{width:100%;border-radius:6px 6px 0 0;background:linear-gradient(180deg,#6ee7b7,var(--green));transition:.3s}
-.dash-bars .col.amber .bar{background:linear-gradient(180deg,#fcd34d,var(--amber))}
-.dash-bars .mo{font-size:10px;color:var(--muted);font-weight:600}
-.dash-split{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;align-items:center}
-.dash-trend{background:var(--mint);border-radius:12px;padding:12px}
-.dash-trend .tl{font-size:11px;color:var(--green-dd);font-weight:700;margin-bottom:6px}
-.dash-trend svg{width:100%;height:48px;display:block}
-.dash-cats{display:flex;flex-direction:column;gap:8px}
-.dash-cats .ci{display:flex;align-items:center;gap:8px;font-size:12px}
-.dash-cats .cd{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.dash-cats .cn{color:var(--slate);font-weight:600}
-.dash-cats .cv{margin-left:auto;font-weight:800;color:var(--ink);font-family:'Inter',sans-serif}
-.hero-float{position:absolute;right:-10px;bottom:-22px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 18px 44px rgba(2,44,33,.2);display:flex;align-items:center;gap:11px;border:1px solid var(--line)}
-.hero-float .fi{width:38px;height:38px;border-radius:10px;background:#fef3c7;display:flex;align-items:center;justify-content:center;font-size:18px}
-.hero-float .fn{font-weight:800;font-size:15px;color:var(--green-dd);line-height:1.2}
-.hero-float .fs{font-size:11px;color:var(--muted)}
-@media(max-width:860px){.hero-in{grid-template-columns:1fr;padding:48px 0 60px;gap:42px}.hero h1{font-size:33px}.hero-float{right:6px}}
+.hero-trust .ck{width:18px;height:18px;border-radius:50%;background:var(--amber);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+.hero-card{background:#fff;border-radius:18px;padding:14px;box-shadow:0 30px 70px rgba(2,44,33,.4)}
+.hero-card .shot{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.hero-card .cap{display:flex;justify-content:space-between;align-items:center;padding:11px 6px 4px;font-size:12.5px;color:var(--muted);font-weight:600}
+.hero-card .pill{background:var(--mint);color:var(--green-dd);padding:3px 11px;border-radius:20px;font-size:11.5px;font-weight:700}
+@media(max-width:860px){.hero-in{grid-template-columns:1fr;padding:54px 0 60px;gap:30px}.hero h1{font-size:33px}}
 
 /* strip stats */
 .strip{background:#fff;border-bottom:1px solid var(--line)}
@@ -242,11 +213,11 @@ section.blk{padding:74px 0}
 
 <!-- Hero -->
 <section class="hero" id="top">
+  <div class="hero-bg"></div>
   <div class="wrap hero-in">
     <div>
-      <span class="hero-badge"><span class="dot"></span>登録不要・完全無料のWebツール</span>
       <h1>複数の副業収入を<br><span class="hl">自動集計・予測</span>できる<br>無料ツール</h1>
-      <p class="lead">ブログ・フリーランス・物販…バラバラな副業収入を種類別に記録するだけ。月別・種類別の自動集計に加え、競合アプリにない<strong style="color:var(--green-dd)">年間収益予測</strong>と確定申告準備まで、ブラウザひとつで完結します。</p>
+      <p class="lead">ブログ・フリーランス・物販…バラバラな副業収入を種類別に記録するだけ。月別・種類別の自動集計に加え、競合アプリにない<strong style="color:#fff">年間収益予測</strong>と確定申告準備まで、ブラウザひとつで完結します。</p>
       <div class="hero-cta">
         <a href="../index.html" class="btn btn-amber">無料で試す →</a>
         <a href="#steps" class="btn btn-ghost">使い方を見る</a>
@@ -258,43 +229,9 @@ section.blk{padding:74px 0}
         <span><i class="ck">✓</i>インストール不要</span>
       </div>
     </div>
-    <div class="hero-vis">
-      <div class="hero-dash">
-        <div class="dash-top">
-          <div class="dash-kpi">
-            <span class="lbl">今月の副業収入</span>
-            <span class="val">¥125,650 <i class="up">▲ 12.4%</i></span>
-          </div>
-          <span class="dash-badge">年間予測<b>¥1,356,000</b></span>
-        </div>
-        <div class="dash-bars">
-          <div class="col"><div class="bar" style="height:38%"></div><span class="mo">1月</span></div>
-          <div class="col"><div class="bar" style="height:52%"></div><span class="mo">2月</span></div>
-          <div class="col"><div class="bar" style="height:46%"></div><span class="mo">3月</span></div>
-          <div class="col"><div class="bar" style="height:64%"></div><span class="mo">4月</span></div>
-          <div class="col"><div class="bar" style="height:58%"></div><span class="mo">5月</span></div>
-          <div class="col amber"><div class="bar" style="height:88%"></div><span class="mo">6月</span></div>
-        </div>
-        <div class="dash-split">
-          <div class="dash-trend">
-            <div class="tl">年間収益トレンド予測</div>
-            <svg viewBox="0 0 200 48" preserveAspectRatio="none">
-              <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10B981" stop-opacity=".35"/><stop offset="1" stop-color="#10B981" stop-opacity="0"/></linearGradient></defs>
-              <path d="M0,40 L33,34 L66,36 L100,24 L133,26 L166,14 L200,8 L200,48 L0,48 Z" fill="url(#ga)"/>
-              <path d="M0,40 L33,34 L66,36 L100,24 L133,26 L166,14 L200,8" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="dash-cats">
-            <div class="ci"><span class="cd" style="background:#10B981"></span><span class="cn">ブログ</span><span class="cv">¥58,200</span></div>
-            <div class="ci"><span class="cd" style="background:#F59E0B"></span><span class="cn">物販</span><span class="cv">¥41,800</span></div>
-            <div class="ci"><span class="cd" style="background:#3b82f6"></span><span class="cn">フリーランス</span><span class="cv">¥25,650</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-float">
-        <span class="fi">📊</span>
-        <div><div class="fn">確定申告</div><div class="fs">税額シミュ対応</div></div>
-      </div>
+    <div class="hero-card">
+      <div class="shot"><img src="../assets/photos/photo_02.jpg" alt="副業収入のダッシュボード画面イメージ" loading="lazy"></div>
+      <div class="cap"><span>月別・種類別の収入をひと目で把握</span><span class="pill">年間予測 ¥1,356,000</span></div>
     </div>
   </div>
 </section>
