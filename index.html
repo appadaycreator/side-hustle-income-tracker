@@ -112,8 +112,29 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
         /* KPI summary frame */
         .kpi-frame{display:flex;flex-direction:column;gap:6px}
-        #summary p{font-size:15px;color:var(--slate)}
+        #summary>p{font-size:15px;color:var(--slate)}
         #summary b{color:var(--green-d)}
+
+        /* form quick chips */
+        .quick-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}
+        .quick-chips .qc{background:var(--mint);color:var(--green-dd);border:1px solid var(--line);border-radius:20px;padding:6px 13px;font-size:12px;font-weight:700;cursor:pointer;transition:.15s;line-height:1}
+        .quick-chips .qc:hover{background:#d5f5e6}
+        .quick-chips .qc.active{background:var(--green);color:#fff;border-color:var(--green)}
+
+        /* KPI cards */
+        .kpi-note{font-size:12px;color:var(--green-d);font-weight:700;display:inline-flex;align-items:center;gap:5px;margin-left:auto}
+        .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+        .kpi{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 15px 13px}
+        .kpi.hl{background:#fffbeb;border-color:#fcd34d}
+        .kpi .kl{font-size:12px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:5px;margin-bottom:7px}
+        .kpi.hl .kl{color:var(--amber-d)}
+        .kpi .kv{font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.15}
+        .kpi.hl .kv{color:var(--amber-d)}
+        .kpi .kc{font-size:11.5px;font-weight:700;margin-top:6px;display:inline-flex;align-items:center;gap:3px}
+        .kpi .kc.up{color:var(--green-d)}
+        .kpi .kc.down{color:#ef4444}
+        .kpi .kc.flat{color:var(--muted)}
+        @media(max-width:600px){.kpi-grid{grid-template-columns:1fr}.kpi{display:flex;justify-content:space-between;align-items:center}.kpi .kl{margin-bottom:0}.kpi .kc{margin-top:0}}
 
         .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
         @media(max-width:560px){.charts-grid{grid-template-columns:1fr}}
@@ -250,7 +271,10 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
             <div class="card" id="record">
               <div class="card-h"><span class="ci"><img src="assets/icons/split/03-01.png" alt=""></span><h2>収入を記録する</h2></div>
 
-              <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;"><label>副業の種類<span style="color:#ef4444;">*</span></label><span title="どの種類の副業収入か選択してください。複数該当する場合は、主要な分類を選んでください。" style="cursor:help;font-size:14px;color:#6b7280;font-weight:700;">?</span></div>
+              <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;"><label>日付<span style="color:#ef4444;">*</span></label><span title="収入を得た日付を選択してください。" style="cursor:help;font-size:14px;color:#6b7280;font-weight:700;">?</span></div>
+              <input type="date" id="date" title="収入を得た日付">
+
+              <div style="display:flex;align-items:center;gap:4px;margin-top:8px;margin-bottom:2px;"><label>副業の種類<span style="color:#ef4444;">*</span></label><span title="どの種類の副業収入か選択してください。複数該当する場合は、主要な分類を選んでください。" style="cursor:help;font-size:14px;color:#6b7280;font-weight:700;">?</span></div>
               <select id="category" title="副業の種類（ブログ・アフィリエイト、フリーランス、動画・配信、物販・転売、その他）">
                 <option value="ブログ・アフィリエイト">ブログ・アフィリエイト</option>
                 <option value="フリーランス">フリーランス</option>
@@ -258,7 +282,12 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
                 <option value="物販・転売">物販・転売</option>
                 <option value="その他">その他</option>
               </select>
-              <p style="font-size:11px;color:#6b7280;margin-top:4px;">例：ブログ広告収入は「ブログ・アフィリエイト」、案件受注は「フリーランス」</p>
+              <div class="quick-chips" id="quick-chips" aria-label="よく使う種類">
+                <button type="button" class="qc" onclick="quickCat(this,'ブログ・アフィリエイト')">ブログ・アフィリエイト</button>
+                <button type="button" class="qc" onclick="quickCat(this,'フリーランス')">フリーランス</button>
+                <button type="button" class="qc" onclick="quickCat(this,'動画・配信')">動画・配信</button>
+                <button type="button" class="qc" onclick="quickCat(this,'物販・転売')">物販・転売</button>
+              </div>
 
               <div style="display:flex;align-items:center;gap:4px;margin-top:8px;margin-bottom:2px;"><label>内容・メモ<span style="color:#ef4444;">*</span></label><span title="具体的な内容（例：Amazon広告収入、画像販売、Uberなど）を記入してください。" style="cursor:help;font-size:14px;color:#6b7280;font-weight:700;">?</span></div>
               <input type="text" id="memo" placeholder="例: Amazon広告収入" title="副業の具体的な内容を記入（例：Amazon広告、ココナラでのライティング、Uberドライバー など）">
@@ -284,25 +313,25 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
           <!-- RIGHT: summary + charts -->
           <div id="summary-sec">
             <div class="card">
-              <div class="card-h amber"><span class="ci"><img src="assets/icons/split/02-03.png" alt=""></span><h3>サマリー</h3></div>
-              <div class="kpi-frame"><div id="summary"><p>記録を追加すると、合計・月平均・<b>年間収益予測</b>が表示されます。</p></div></div>
+              <div class="card-h amber"><span class="ci"><img src="assets/icons/split/02-03.png" alt=""></span><h3>サマリー</h3><span class="kpi-note"><img src="assets/icons/split/04-02.png" alt="" style="width:15px;height:15px">データは自動で保存されます</span></div>
+              <div class="kpi-frame"><div id="summary"><p>記録を追加すると、今月の収入・今年の累計・<b>年間収益予測</b>が表示されます。</p></div></div>
             </div>
 
             <div class="result" id="result">
               <div class="card">
-                <div class="card-h"><span class="ci"><img src="assets/icons/split/02-03.png" alt=""></span><h3>月別・種類別の収入推移</h3></div>
+                <div class="card-h"><span class="ci"><img src="assets/icons/split/02-03.png" alt=""></span><h3>月別収入の推移</h3></div>
                 <div class="chart-box" style="margin-bottom:16px">
-                  <div class="ct"><img src="assets/icons/split/01-01.png" alt="">種類別の収入</div>
-                  <div style="position:relative;height:240px;"><canvas id="categoryChart"></canvas></div>
+                  <div class="ct"><img src="assets/icons/split/01-01.png" alt="">月別収入の推移（実績＋予測）</div>
+                  <div style="position:relative;height:240px;"><canvas id="monthlyChart"></canvas></div>
                 </div>
                 <div class="charts-grid">
                   <div class="chart-box">
-                    <div class="ct"><img src="assets/icons/split/02-02.png" alt="">種類別の内訳</div>
+                    <div class="ct"><img src="assets/icons/split/02-02.png" alt="">種類別の内訳（今年）</div>
                     <div style="position:relative;height:230px;"><canvas id="pieChart"></canvas></div>
                   </div>
                   <div class="chart-box">
-                    <div class="ct"><img src="assets/icons/split/01-02.png" alt="">年間収益予測（累計）</div>
-                    <div style="position:relative;height:230px;"><canvas id="timelineChart"></canvas></div>
+                    <div class="ct"><img src="assets/icons/split/01-02.png" alt="">年間収益予測の推移</div>
+                    <div style="position:relative;height:230px;"><canvas id="predictChart"></canvas></div>
                   </div>
                 </div>
               </div>
